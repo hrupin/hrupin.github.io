@@ -1,11 +1,33 @@
 <div id="content" style="display:none">
+	
+	<input type="file" multiple onchange="showType(this)">
+	
 	<p>Capture Screen: <input type="file" accept="video/*" id="capture" capture="screen"></p>
 	<p>Capture Image: <input type="file" accept="image/*" id="capture" capture="camera"></p>
 	<p>Capture Audio: <input type="file" accept="audio/*" id="capture" capture="microphone"> </p>
 	<p>Capture Video: <input type="file" accept="video/*" id="capture" capture="camcorder"> </p>
+	
+	<a href="#">Click</a>
+	
 </div>
 <script>
+	
 	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
 	    document.getElementById("content").style.display = "block"
 	}
+	
+	
+	$("a").on("click", function(){
+	    showType(fileChooserID)
+	})
+	function showType(fileInput) {
+	  var files = fileInput.files;
+
+	  for (var i = 0; i < files.length; i++) {
+	    var name = files[i].name;
+	    var type = files[i].type;
+	    alert("Filename: " + name + " , Type: " + type);
+	  }
+	}
+	
 </script>
