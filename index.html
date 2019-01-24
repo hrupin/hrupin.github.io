@@ -16,8 +16,8 @@
         $("#fileuploader").uploadFile({
             url:"YOUR_FILE_UPLOAD_URL",
             fileName:"myfile",
-            onSelect:function(obj){
-                    alert("Start")
+            onSelect:function(files){
+                    alert(files)
             },
             onLoad:function(obj){
                     $("#eventsmessage").html($("#eventsmessage").html()+"<br/>Widget Loaded:");
