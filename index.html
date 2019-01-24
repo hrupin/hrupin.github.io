@@ -8,13 +8,17 @@
     <script src="./jquery.uploadfile.min.js"></script>
 </head>
 <body>
+    <h1 id="eventsmessage"></h1>
 <div id="fileuploader">Upload</div>
 <script>
     $(document).ready(function()
     {
         $("#fileuploader").uploadFile({
             url:"YOUR_FILE_UPLOAD_URL",
-            fileName:"myfile"
+            fileName:"myfile",
+            onLoad:function(obj){
+                    $("#eventsmessage").html($("#eventsmessage").html()+"<br/>Widget Loaded:");
+            },
         });
     });
 </script>
